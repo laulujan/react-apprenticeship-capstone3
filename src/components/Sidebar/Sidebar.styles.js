@@ -7,6 +7,7 @@ export const Nav = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: #e1e9fc;
 `;
 
 export const NavIcon = styled(Link)`
@@ -16,6 +17,8 @@ export const NavIcon = styled(Link)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: transparent;
+  color: #e1e9fc;
 `;
 
 export const SidebarNav = styled.nav`
@@ -25,7 +28,7 @@ export const SidebarNav = styled.nav`
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 0;
+  top: 80px;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 350ms;
   z-index: 10;
