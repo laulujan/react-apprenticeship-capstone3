@@ -1,13 +1,12 @@
 import React from 'react';
 import CreateNote from '../../components/CreateNote/CreateNote';
-import Note from '../../components/Note/Note';
+import NotesWrapper from '../../components/NotesWrapper/NotesWrapper';
 
 const Notes = () => {
   return (
     <div>
-      notes go here
       <CreateNote />
-      <Note />
+      <NotesWrapper />
     </div>
   );
 };

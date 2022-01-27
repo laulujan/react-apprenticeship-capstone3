@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Nav = styled.div`
-  background: #15171c;
+  background-color: white;
+  border-bottom: 1px solid black;
   height: 80px;
   display: flex;
   justify-content: flex-start;
@@ -18,11 +19,11 @@ export const NavIcon = styled(Link)`
   justify-content: flex-start;
   align-items: center;
   background-color: transparent;
-  color: #e1e9fc;
+  color: #242423;
 `;
 
 export const SidebarNav = styled.nav`
-  background: #15171c;
+  background-color: white;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -39,7 +40,7 @@ export const SidebarWrap = styled.div`
 `;
 export const SidebarLink = styled(Link)`
   display: flex;
-  color: #e1e9fc;
+  color: #242423;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -49,14 +50,13 @@ export const SidebarLink = styled(Link)`
   font-size: 18px;
 
   &:hover {
-    background: #252831;
-    border-left: 4px solid green;
+    background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
   }
 `;
 export const SidebarItem = styled.div`
   display: flex;
-  color: #e1e9fc;
+  color: #242423;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -65,8 +65,7 @@ export const SidebarItem = styled.div`
   font-size: 18px;
 
   &:hover {
-    background: #252831;
-    border-left: 4px solid green;
+    background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
   }
 `;

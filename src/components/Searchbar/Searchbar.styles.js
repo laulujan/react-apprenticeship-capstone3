@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { MdSearch } from 'react-icons/md';
 export const Input = styled.input`
   width: 300px;
-  border: none;
+  border: 1px solid black;
   border-radius: 30px;
   outline: none;
   padding-inline-start: 52px;

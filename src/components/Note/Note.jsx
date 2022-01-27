@@ -8,7 +8,10 @@ import { NoteBox, Content, Button, Wrapper } from './Note.styles';
 const Note = () => {
   return (
     <NoteBox>
-      <Content>note content</Content>
+      <Content>
+        Very large note content just to see how it looks on the display wswsws
+        wawawawa other thing else
+      </Content>
       <Wrapper>
         <Button>
           <MdOutlineEdit />
