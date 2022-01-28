@@ -17,6 +17,7 @@ export const FormContainer = styled.div`
   border-radius: 5px;
   padding: 20px;
   width: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   @media (max-width: 820px) {
     width: 100%;
   }
@@ -32,19 +33,15 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 40%;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px;
+  background: #21c06e;
+  font-size: 1rem;
+  height: 36px;
+  width: 120px;
   border: none;
   border-radius: 4px;
+  outline: none;
   cursor: pointer;
-  opacity: 0.5;
   &:hover {
-    opacity: 1;
+    opacity: 0.5;
   }
-`;
-export const CancelButton = styled(Button)`
-  background-color: gray;
-  border-color: gray;
 `;

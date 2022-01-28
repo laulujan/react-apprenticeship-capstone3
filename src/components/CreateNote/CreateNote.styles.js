@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const CreateBox = styled.div`
-  width: 100%;
-  max-width: 600px;
+  width: 90%;
+  max-width: 500px;
   padding: 16px;
   margin: 16px auto;
   background-color: white;
