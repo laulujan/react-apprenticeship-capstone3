@@ -3,6 +3,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
@@ -38,10 +39,17 @@ const logout = () => {
   signOut(auth);
 };
 
+const validateLogin = (validation) => {
+  return onAuthStateChanged(auth, (user) => {
+    validation(user);
+  });
+};
+
 export {
   auth,
   db,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   logout,
+  validateLogin,
 };

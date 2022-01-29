@@ -58,4 +58,10 @@ const registerUser = (dispatch) => async (username, password) => {
   }
 };
 
-export { ACTIONS, loginUser, logoutUser, registerUser };
+const refreshUser = (dispatch) => async (user) => {
+  dispatch({
+    type: ACTIONS.LOGGED,
+    payload: { user },
+  });
+};
+export { ACTIONS, loginUser, logoutUser, registerUser, refreshUser };

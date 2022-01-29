@@ -1,5 +1,5 @@
 import React, { useContext, useReducer } from 'react';
-import { loginUser, logoutUser, registerUser } from './Actions';
+import { loginUser, logoutUser, registerUser, refreshUser } from './Actions';
 import { AuthContext } from './Context';
 import { authReducer, initialState } from './Reducer';
 
@@ -21,6 +21,7 @@ const AuthProvider = ({ children }) => {
     login: loginUser(dispatch),
     logout: logoutUser(dispatch),
     register: registerUser(dispatch),
+    refreshUser: refreshUser(dispatch),
     isLoggedIn: Boolean(state.user),
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

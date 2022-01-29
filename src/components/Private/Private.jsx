@@ -1,14 +1,28 @@
-import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../Provider/Auth/Provider';
+import { validateLogin } from '../../services/firebase';
 
 function Private({ children }) {
-  const { user } = useAuth();
-  let location = useLocation();
-  if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
+  const { user, refreshUser } = useAuth();
+  const navigate = useNavigate();
+
+  const validation = (user) => {
+    if (user) {
+      refreshUser(user);
+    } else {
+      navigate('/login');
+    }
+  };
+
+  useEffect(async () => {
+    if (!user) {
+      const subscription = validateLogin(validation);
+      subscription();
+    }
+  }, [user]);
+
   return children;
 }
 

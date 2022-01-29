@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
 import Private from '../Private/Private';
 import Sidebar from '../Sidebar/Sidebar';
 import Login from '../../pages/Login/Login';
@@ -13,6 +13,7 @@ function Router() {
     <BrowserRouter>
       <Sidebar />
       <Routes>
+        <Route exact path="/" element={<Navigate to="/login" />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route
