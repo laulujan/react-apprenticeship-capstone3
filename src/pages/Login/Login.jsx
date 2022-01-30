@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../Provider/Auth/Provider';
 import { Container, FormContainer, Input, Button } from './Login.styles';
+import { validateLogin } from '../../services/firebase';
 
 const Login = () => {
-  const { login, error } = useAuth();
+  const { login, error, user } = useAuth();
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
   let navigate = useNavigate();
@@ -13,6 +14,17 @@ const Login = () => {
     await login(userEmail, password);
     navigate('/notes');
   };
+
+  const validation = (user) => {
+    if (user) {
+      navigate('/notes');
+    }
+  };
+
+  useEffect(() => {
+    const subscription = validateLogin(validation);
+    subscription();
+  }, [user]);
 
   return (
     <Container>

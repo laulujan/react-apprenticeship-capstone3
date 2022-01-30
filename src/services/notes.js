@@ -45,7 +45,7 @@ const findNotesByText = async (text, userId, archived) => {
     const entities = result.val();
 
     for (let key in entities) {
-      if (entities[key].text == text) {
+      if (entities[key].text.toLowerCase().includes(text.toLowerCase())) {
         res[key] = entities[key];
       }
     }

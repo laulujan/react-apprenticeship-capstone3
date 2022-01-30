@@ -51,7 +51,7 @@ const ModalShadow = styled.div`
 `;
 
 export const MainButton = styled.button``;
-export default function ModalContainer({ setOpen, note, id, reloadNotes }) {
+export default function ModalContainer({ setOpen, note, id }) {
   function close() {
     setOpen(false);
   }
@@ -60,12 +60,7 @@ export default function ModalContainer({ setOpen, note, id, reloadNotes }) {
     <>
       <ModalShadow onClick={close} />
       <Modal>
-        <CreateNote
-          note={note}
-          id={id}
-          reloadNotes={reloadNotes}
-          close={close}
-        />
+        <CreateNote note={note} id={id} close={close} />
       </Modal>
     </>,
     document.getElementById('app-modal')

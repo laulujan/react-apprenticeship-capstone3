@@ -14,11 +14,13 @@ import {
   Color4,
   Color5,
 } from './CreateNote.styles';
+import { useNotes } from '../../Provider/Notes/Provider';
 
-const CreateNote = ({ reloadNotes, note, id, close }) => {
+const CreateNote = ({ note, id, close }) => {
   const [text, setText] = useState('');
   const [color, setColor] = useState('');
   const { user } = useAuth();
+  const { reloadNotes } = useNotes();
 
   useEffect(() => {
     if (note) {
@@ -35,16 +37,19 @@ const CreateNote = ({ reloadNotes, note, id, close }) => {
   };
 
   const onClick = () => {
+    let isArchived = false;
+
     if (!id) {
       createNote(text, color, user.uid);
       setText('');
       setColor('');
     } else {
       updateNote(id, text, color, user.uid, note.isArchived);
+      isArchived = note.isArchived;
       close();
     }
 
-    reloadNotes();
+    reloadNotes(user.uid, isArchived, false);
   };
 
   return (

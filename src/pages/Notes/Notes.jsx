@@ -1,26 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import CreateNote from '../../components/CreateNote/CreateNote';
 import NotesWrapper from '../../components/NotesWrapper/NotesWrapper';
-import { findNotes } from '../../services/notes';
 import { useAuth } from '../../Provider/Auth/Provider';
+import { useNotes } from '../../Provider/Notes/Provider';
 
 const Notes = () => {
-  const [notes, setNotes] = useState({});
   const { user } = useAuth();
+  const { notes, reloadNotes } = useNotes({});
 
   useEffect(async () => {
     if (user) {
-      setNotes(await findNotes(user.uid, false));
+      reloadNotes(user.uid, false, false);
     }
   }, [user]);
 
-  const reloadNotes = async () => {
-    setNotes(await findNotes(user.uid, false));
-  };
   return (
     <div>
-      <CreateNote reloadNotes={reloadNotes} />
-      <NotesWrapper notes={notes} reloadNotes={reloadNotes} />
+      <CreateNote />
+      <NotesWrapper notes={notes} />
     </div>
   );
 };
