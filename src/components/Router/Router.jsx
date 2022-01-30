@@ -11,6 +11,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 function Router() {
   return (
     <BrowserRouter>
+      <div id="app-modal" />
       <Sidebar />
       <Routes>
         <Route exact path="/" element={<Navigate to="/login" />} />

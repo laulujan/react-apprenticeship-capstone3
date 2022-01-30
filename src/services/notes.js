@@ -62,8 +62,7 @@ const findNotes = async (userId, archived) => {
 
   return await get(noteRef).then((result) => {
     const resultset = result.val();
-
-    if (resultset.length == 0) {
+    if (!resultset) {
       return {};
     }
 
