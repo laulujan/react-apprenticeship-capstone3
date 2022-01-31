@@ -11,7 +11,7 @@ const Img = styled.img`
 const LinkStyled = styled(Link)`
   text-align: center;
   text-decoration: none;
-  font-size: 38px;
+  font-size: 40px;
 `;
 
 function NotFoundPage() {
