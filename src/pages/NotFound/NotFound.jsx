@@ -1,14 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Section = styled.section`
+  display: grid;
+`;
+const Img = styled.img`
+  margin: auto;
+`;
+const LinkStyled = styled(Link)`
+  text-align: center;
+  text-decoration: none;
+  font-size: 38px;
+`;
 
 function NotFoundPage() {
   return (
-    <section className="not-found">
-      <img src="/404.gif" alt="not found" />
-      <Link to="/login" className="home-link">
+    <Section className="not-found">
+      <Img src="/404.gif" alt="not found" />
+      <LinkStyled to="/login" className="home-link">
         Login
-      </Link>
-    </section>
+      </LinkStyled>
+    </Section>
   );
 }
 

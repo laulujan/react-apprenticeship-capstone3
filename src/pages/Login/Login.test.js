@@ -73,7 +73,6 @@ describe('<Login />', () => {
     await act(async () => {
       fireEvent.click(btn);
     });
-    screen.debug();
     expect(authProps.login).toHaveBeenCalled();
   });
 });

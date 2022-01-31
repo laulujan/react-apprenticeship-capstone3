@@ -25,10 +25,11 @@ const Note = ({ note, id }) => {
     reloadNotes(user.uid, false, false);
   };
   return (
-    <NoteBox style={{ backgroundColor: note.color }}>
+    <NoteBox style={{ backgroundColor: note.color }} id="note">
       <Content>{note.text}</Content>
       <Wrapper>
         <Button
+          title="edit"
           onClick={() => {
             setOpen(true);
           }}
@@ -37,12 +38,12 @@ const Note = ({ note, id }) => {
         </Button>
         {open && <ModalContainer setOpen={setOpen} note={note} id={id} />}
         {!note.isArchived && (
-          <Button onClick={onArchiveNote}>
+          <Button onClick={onArchiveNote} title="archive">
             <MdOutlineArchive />
           </Button>
         )}
 
-        <Button onClick={onDeleteNote}>
+        <Button onClick={onDeleteNote} title="delete">
           <MdOutlineDelete />
         </Button>
       </Wrapper>
