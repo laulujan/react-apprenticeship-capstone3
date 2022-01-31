@@ -18,7 +18,7 @@ import { useNotes } from '../../Provider/Notes/Provider';
 
 const CreateNote = ({ note, id, close }) => {
   const [text, setText] = useState('');
-  const [color, setColor] = useState('');
+  const [color, setColor] = useState('white');
   const { user } = useAuth();
   const { reloadNotes } = useNotes();
 
@@ -53,12 +53,13 @@ const CreateNote = ({ note, id, close }) => {
   };
 
   return (
-    <CreateBox>
+    <CreateBox style={{ backgroundColor: color }}>
       <Textarea
         placeholder="Take note..."
         rows={5}
         onChange={onChangeText}
         value={text}
+        style={{ backgroundColor: color }}
       />
       <Wrapper>
         <ColorPicker onChange={onChangeColor} value={color}>

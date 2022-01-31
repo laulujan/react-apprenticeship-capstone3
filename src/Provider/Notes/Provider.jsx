@@ -16,6 +16,7 @@ const NotesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(notesReducer, initialState);
   const value = {
     notes: state.notes,
+    error: state.error,
     reloadNotes: reloadNotes(dispatch),
   };
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MdStickyNote2, MdArchive } from 'react-icons/md';
 import { FaBars, FaSignOutAlt } from 'react-icons/fa';
 import Searchbar from '../Searchbar/Searchbar';
@@ -16,6 +16,7 @@ import {
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
   const { logout, user } = useAuth();
+  const ref = useRef();
 
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -23,6 +24,19 @@ const Sidebar = () => {
     logout();
     setSidebar(!sidebar);
   };
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (sidebar && ref.current && !ref.current.contains(e.target)) {
+        setSidebar(!sidebar);
+      }
+    };
+
+    document.addEventListener('mousedown', checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', checkIfClickedOutside);
+    };
+  }, [sidebar]);
 
   return (
     <>
@@ -35,7 +49,7 @@ const Sidebar = () => {
             <Searchbar />
           </Nav>
           <SidebarNav sidebar={sidebar}>
-            <SidebarWrap>
+            <SidebarWrap ref={ref}>
               <SidebarLink to="/notes">
                 <div>
                   <MdStickyNote2 />

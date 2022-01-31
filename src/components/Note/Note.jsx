@@ -25,7 +25,7 @@ const Note = ({ note, id }) => {
     reloadNotes(user.uid, false, false);
   };
   return (
-    <NoteBox>
+    <NoteBox style={{ backgroundColor: note.color }}>
       <Content>{note.text}</Content>
       <Wrapper>
         <Button

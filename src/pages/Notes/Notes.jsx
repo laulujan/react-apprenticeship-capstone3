@@ -6,7 +6,7 @@ import { useNotes } from '../../Provider/Notes/Provider';
 
 const Notes = () => {
   const { user } = useAuth();
-  const { notes, reloadNotes } = useNotes({});
+  const { notes, reloadNotes, error } = useNotes({});
 
   useEffect(async () => {
     if (user) {
@@ -17,7 +17,7 @@ const Notes = () => {
   return (
     <div>
       <CreateNote />
-      <NotesWrapper notes={notes} />
+      <NotesWrapper notes={notes} errorMessage={error} />
     </div>
   );
 };

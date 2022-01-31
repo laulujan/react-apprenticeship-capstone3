@@ -5,7 +5,7 @@ import { useNotes } from '../../Provider/Notes/Provider';
 
 const Archive = () => {
   const { user } = useAuth();
-  const { notes, reloadNotes } = useNotes();
+  const { notes, reloadNotes, error } = useNotes();
 
   useEffect(async () => {
     if (user) {
@@ -13,7 +13,7 @@ const Archive = () => {
     }
   }, [user]);
 
-  return <NotesWrapper notes={notes} />;
+  return <NotesWrapper notes={notes} errorMessage={error} />;
 };
 
 export default Archive;

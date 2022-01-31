@@ -2,7 +2,7 @@ import React from 'react';
 import Note from '../Note/Note';
 import { Container } from './NotesWrapper.styles';
 
-const NotesWrapper = ({ notes }) => {
+const NotesWrapper = ({ notes, errorMessage }) => {
   const parseNotes = () => {
     const res = [];
     for (let id in notes) {
@@ -11,7 +11,15 @@ const NotesWrapper = ({ notes }) => {
     return res;
   };
 
-  return <Container>{parseNotes()}</Container>;
+  return (
+    <Container>
+      {Object.keys(notes).length === 0 ? (
+        <div>{errorMessage}</div>
+      ) : (
+        parseNotes()
+      )}
+    </Container>
+  );
 };
 
 export default NotesWrapper;

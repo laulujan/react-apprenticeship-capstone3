@@ -11,8 +11,11 @@ const Login = () => {
   let navigate = useNavigate();
 
   const handleLogin = async () => {
-    await login(userEmail, password);
-    navigate('/notes');
+    let userLogged = await login(userEmail, password);
+
+    if (userLogged) {
+      navigate('/notes');
+    }
   };
 
   const validation = (user) => {
